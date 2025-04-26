@@ -1,114 +1,124 @@
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 24px;
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(18, 18, 18, 0.7);
   
-  .brand {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    gap: 8px;
-  }
-  
-  .icon {
-    width: 32px;
-    height: 32px;
-    color: #a855f7; /* purple-500 */
-  }
-  
-  .brand-text {
-    color: white;
-    font-weight: 500;
-    font-size: 20px;
-  }
-  
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logo-icon {
+  width: 32px;
+  height: 32px;
+  color: #9333ea;
+}
+
+.brand-text {
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.nav-links {
+  display: none;
+}
+
+.nav-buttons {
+  display: none;
+}
+
+.mobile-menu {
+  display: block;
+  background: none;
+  border: none;
+  color: white;
+}
+
+.menu-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.nav-link {
+  color: #ccc;
+  position: relative;
+  margin: 0 12px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: white;
+}
+
+.nav-link .underline {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #9333ea;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover .underline {
+  width: 100%;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  transition: background 0.3s;
+}
+
+.btn.ghost {
+  background: transparent;
+  color: white;
+}
+
+.btn.ghost:hover {
+  color: #c084fc;
+}
+
+.btn.primary {
+  background-color: #9333ea;
+  color: white;
+}
+
+.btn.primary:hover {
+  background-color: #7e22ce;
+}
+
+.btn.icon {
+  padding: 8px;
+  background: transparent;
+}
+
+/* Responsive design */
+@media (min-width: 768px) {
   .nav-links {
+    display: flex;
+  }
+
+  .nav-buttons {
+    display: flex;
+    gap: 12px;
+  }
+
+  .mobile-menu {
     display: none;
   }
-  @media (min-width: 768px) {
-    .nav-links {
-      display: flex;
-      gap: 32px;
-      align-items: center;
-    }
-  }
-  
-  .nav-link {
-    color: #d1d5db;
-    text-decoration: none;
-    position: relative;
-    transition: color 0.3s;
-  }
-  .nav-link:hover {
-    color: white;
-  }
-  .nav-link .underline {
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    height: 2px;
-    width: 0;
-    background-color: #a855f7;
-    transition: width 0.3s;
-  }
-  .nav-link:hover .underline {
-    width: 100%;
-  }
-  
-  .auth-buttons {
-    display: none;
-  }
-  @media (min-width: 768px) {
-    .auth-buttons {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-    }
-  }
-  
-  .btn {
-    padding: 8px 16px;
-    border: none;
-    cursor: pointer;
-    font-weight: 500;
-    border-radius: 4px;
-    transition: background 0.3s;
-  }
-  
-  .btn.ghost {
-    background: transparent;
-    color: white;
-  }
-  .btn.ghost:hover {
-    color: #a855f7;
-  }
-  
-  .btn.primary {
-    background-color: #9333ea;
-    color: white;
-  }
-  .btn.primary:hover {
-    background-color: #7e22ce;
-  }
-  
-  .menu-button {
-    display: block;
-    background: transparent;
-    border: none;
-    color: white;
-    cursor: pointer;
-  }
-  .menu-icon {
-    width: 24px;
-    height: 24px;
-  }
-  @media (min-width: 768px) {
-    .menu-button {
-      display: none;
-    }
-  }
-  
+}
