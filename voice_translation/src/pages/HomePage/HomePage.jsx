@@ -2,6 +2,7 @@ import React from "react";
 import Hero from "../../components/Hero/Hero";
 import Navbar from "../../components/Navbar/Navbar";
 import { SparklesCore } from "../../components/Sparkles/SparklesCore";
+import Voice from "../../components/voice_translation/voice_translation";
 import "./HomePage.css"; 
 
 function HomePage() {
@@ -24,6 +25,7 @@ function HomePage() {
       <div className="content-wrapper">
         <Navbar />
         <Hero />
+        <Voice/>
       </div>
     </main>
   );

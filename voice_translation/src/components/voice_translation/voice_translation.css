@@ -1,0 +1,83 @@
+.translator-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    //background: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .mode-switch {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .mode-switch button {
+    margin: 0 5px;
+    padding: 10px 20px;
+    background: #ddd;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .mode-switch .active {
+    background: #6a0dad;
+    color: white;
+  }
+  
+  .selectors {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .selectors label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .selectors select {
+    width: 100%;
+    padding: 8px;
+  }
+  
+  .input-section {
+    margin-bottom: 20px;
+  }
+  
+  .text-box, .text-area {
+    width: 100%;
+    min-height: 80px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background: white;
+    border-radius: 4px;
+  }
+  
+  .text-area {
+    resize: vertical;
+  }
+  
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  .buttons button {
+    padding: 10px 20px;
+    background: #6a0dad;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .buttons button:disabled {
+    background: #aaa;
+    cursor: not-allowed;
+  }
+  
