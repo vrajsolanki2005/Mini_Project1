@@ -1,101 +1,157 @@
 .card {
-  max-width: 700px;
-  margin: 20px auto;
-  padding: 20px;
-  background: #222;
-  color: #eee;
+  max-width: 800px;
+  margin: auto;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
   border-radius: 10px;
+  color: white;
+}
+
+.card-header, .card-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.title {
+  font-size: 24px;
+  text-align: center;
 }
 
 .mode-toggle {
   display: flex;
-  justify-content: center;
-  margin: 10px 0;
+  gap: 0.5rem;
 }
 
-.mode-toggle button {
-  margin: 0 5px;
-  padding: 10px 20px;
-  background: #555;
-  color: #fff;
+.mode-button {
+  background: transparent;
+  color: white;
+  padding: 0.5rem 1rem;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
+  border-radius: 6px;
 }
 
-.mode-toggle .active {
-  background: purple;
+.mode-button.active {
+  background-color: purple;
 }
 
-.row {
+.icon {
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+.card-content {
+  margin-top: 1rem;
   display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.col {
-  flex: 1;
-}
-
-.col select, .col label {
-  display: block;
-  width: 100%;
-}
-
-.text-area {
-  margin-bottom: 20px;
-}
-
-textarea {
-  width: 100%;
-  min-height: 80px;
-  background: #333;
-  color: white;
-  border: 1px solid #444;
-  padding: 10px;
-  resize: none;
-}
-
-.output-box {
-  background: #333;
-  padding: 10px;
-  min-height: 60px;
-  border: 1px solid #444;
-  color: white;
-}
-
-.actions {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-button {
-  padding: 10px 20px;
-  background: #007bff;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  cursor: pointer;
-}
-
-button:disabled {
-  background: gray;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .alert {
-  background: #856404;
-  color: #fff3cd;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 5px;
+  background: rgba(255, 0, 0, 0.2);
+  border: 1px solid red;
+  padding: 0.75rem;
+  border-radius: 6px;
+  color: lightcoral;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.error {
-  background: #dc3545;
-  color: #fff;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 5px;
+.lang-select {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.lang-select label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 14px;
+  color: #ccc;
+}
+
+select {
+  width: 100%;
+  padding: 0.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+}
+
+.input-area, .output-area {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.recording-dot {
+  width: 8px;
+  height: 8px;
+  background: red;
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+.recording-text {
+  font-size: 12px;
+  color: #999;
+}
+
+.input-box {
+  min-height: 100px;
+  padding: 0.75rem;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  color: white;
+  resize: none;
+  width: 100%;
+}
+
+.primary-button {
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: white;
+  background: purple;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.primary-button.danger {
+  background: red;
+}
+
+.primary-button.blue {
+  background: #2563eb;
+}
+
+.primary-button.green {
+  background: #16a34a;
 }

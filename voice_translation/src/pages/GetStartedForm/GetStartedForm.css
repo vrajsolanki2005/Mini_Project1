@@ -1,0 +1,62 @@
+.form-card {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(12px);
+    color: white;
+  }
+  
+  .form-header {
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .icon-purple {
+    color: #a855f7;
+  }
+  
+  .text-muted {
+    color: #9ca3af;
+  }
+  
+  .text-light {
+    color: #e5e7eb;
+  }
+  
+  .step-indicator {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+  
+  .dot {
+    width: 10px;
+    height: 10px;
+    margin: 0 4px;
+    border-radius: 50%;
+    background-color: #4b5563;
+  }
+  
+  .dot.active {
+    background-color: #a855f7;
+  }
+  
+  .icon-circle {
+    margin: 0 auto;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(168, 85, 247, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  
+  .text-link {
+    color: #c084fc;
+    text-decoration: none;
+  }
+  
+  .text-link:hover {
+    color: #d8b4fe;
+  }
+  

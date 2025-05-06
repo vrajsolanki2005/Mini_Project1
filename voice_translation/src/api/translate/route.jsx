@@ -1,45 +1,67 @@
-export async function translateTextHandler(req, res) {
-    try {
-      const { text, sourceLang, targetLang } = req.body;
-  
-      // Validate input
-      if (!text) {
-        return res.status(400).json({ error: "Text is required" });
-      }
-  
-      if (!sourceLang || !targetLang) {
-        return res.status(400).json({ error: "Source and target languages are required" });
-      }
-  
-      // LibreTranslate API endpoint (no API key required for many public instances)
-      const url = "https://libretranslate.de/translate";
-  
-      const response = await fetch(url, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          q: text,
-          source: sourceLang.split("-")[0], // Extract 'en' from 'en-US'
-          target: targetLang.split("-")[0],
-          format: "text",
-        }),
-      });
-  
-      if (!response.ok) {
-        const errorData = await response.json();
-        console.error("Translation API error:", errorData);
-        return res.status(response.status).json({ error: "Translation service error" });
-      }
-  
-      const data = await response.json();
-      const translatedText = data.translatedText;
-  
-      return res.json({ translatedText });
-    } catch (error) {
-      console.error("Translation error:", error);
-      return res.status(500).json({ error: "Failed to translate text" });
+const languageCodeMap = {
+  en: "en",
+  es: "es",
+  fr: "fr",
+  de: "de",
+  it: "it",
+  ja: "ja",
+  ko: "ko",
+  zh: "zh",
+  ru: "ru",
+  pt: "pt",
+  ar: "ar",
+  hi: "hi",
+  nl: "nl",
+  pl: "pl",
+  tr: "tr",
+};
+
+
+
+export async function translateText(text, sourceLang, targetLang) {
+  try {
+    if (!text) {
+      return { error: "Text is required" };
     }
+
+    if (!sourceLang || !targetLang) {
+      return { error: "Source and target languages are required" };
+    }
+
+    const sourceLanguageCode = sourceLang.split("-")[0];
+    const targetLanguageCode = targetLang.split("-")[0];
+
+    const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(
+      text
+    )}&langpair=${sourceLanguageCode}|${targetLanguageCode}`;
+
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      console.error("Translation API error:", errorData);
+      return { error: `Translation service error: ${response.status}` };
+    }
+
+    const data = await response.json();
+
+    if (!data.responseData || !data.responseData.translatedText) {
+      console.error("Unexpected API response:", data);
+      return { error: "Translation failed or returned unexpected result" };
+    }
+
+    if (
+      data.responseStatus === 429 ||
+      (data.quotaFinished && data.quotaFinished === true)
+    ) {
+      return {
+        error: "Translation quota exceeded. Please try again tomorrow.",
+      };
+    }
+
+    return { translatedText: data.responseData.translatedText };
+  } catch (error) {
+    console.error("Translation error:", error);
+    return { error: "Failed to translate text" };
   }
-  
+}
